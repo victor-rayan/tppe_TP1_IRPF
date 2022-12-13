@@ -7,4 +7,4 @@ class Rendimento:
         return self._descricao
 
     def getValor(self) -> float:
-        return self.valor
+        return self._valor
