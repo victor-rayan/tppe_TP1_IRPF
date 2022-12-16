@@ -12,5 +12,9 @@ class CadastroDeRendimentos:
         return total
 
     def cadastrarRendimento(self, descricao, valor):
+        if valor <= 0 or valor == None:
+            raise Exception('ValorRendimentoInvalidoException')
+        if descricao == None or descricao == "":
+            raise Exception('DescricaoEmBrancoException')
         novoRendimento = Rendimento(descricao, valor)
         self._rendimentos.append(novoRendimento)
