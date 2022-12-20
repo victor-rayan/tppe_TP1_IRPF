@@ -54,4 +54,4 @@ class Deducoes:
     def calculoValorTotalDeducoes(self):
         qtdeDependente = self.getQtdeDependente()
         self.totalValorDeducao += (189.59 * qtdeDependente)
-        return self.totalValorDeducao      
+        return round(self.totalValorDeducao,2)      

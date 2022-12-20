@@ -67,22 +67,23 @@ def testCadastrarDependente(nome1:str,nome2:str,nome3:str,data_nascimento1:str,d
 
     assert resultado == esperado
 
-@pytest.mark.parametrize("descricao1,descricao2,nome,data_nascimento,nome2,data_nascimento2,valor1,valor2,valor3,esperado",
+@pytest.mark.parametrize("descricao1,descricao2,nome,data_nascimento,nome2,data_nascimento2,valor1,valor2,valor3,valor4,esperado",
     [
-        ("Privada","FAPI","Maria",'10/09/2005','Joao','20/10/2012',400.0,150.0,379.18,929.18), 
-        ("Aposentadoria","Funpresp","Marcos","10/11/2009","Nilmar","10/01/2007",1250.00,600.00,379.18,2229.18), 
-        ("FAPI","Investimento","Mia","10/01/2007","Jorge","10/11/2009",700.50,900.00,379.18,1979.68)
+        ("Privada","FAPI","Maria",'10/09/2005','Joao','20/10/2012',400.0,150.0,379.18,700.00,1629.18), 
+        ("Aposentadoria","Funpresp","Marcos","10/11/2009","Nilmar","10/01/2007",1250.00,600.00,379.18,670.00,2899.18), 
+        ("FAPI","Investimento","Mia","10/01/2007","Jorge","10/11/2009",700.50,900.00,379.18,1200.00,3179.68)
     ])
-def testCalculoTotalDeducao(descricao1: str,descricao2: str,nome:str,data_nascimento:str, nome2:str,data_nascimento2:str, valor1: float, valor2: float,valor3: float, esperado:list):
+def testCalculoTotalDeducao(descricao1: str,descricao2: str,nome:str,data_nascimento:str, nome2:str,data_nascimento2:str, valor1: float, valor2: float,valor3: float,valor4: float, esperado:list):
     
     deducao = Deducoes()
     deducao.cadastrarOutrasDeducoes(descricao1,valor1)
     deducao.cadastrarPrevidenciaOficial(descricao2,valor2)
     deducao.cadastrarDependente(nome,data_nascimento)
+    deducao.cadastrarPensaoAlimenticia(valor4)
     deducao.cadastrarDependente(nome2,data_nascimento2)
     
     resultado = deducao.calculoValorTotalDeducoes()
     
-    esperado = valor1 + valor2 + valor3
+    esperado = round((valor1 + valor2 + valor3 + valor4),2)
 
     assert resultado == esperado
