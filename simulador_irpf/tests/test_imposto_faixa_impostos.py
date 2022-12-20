@@ -1,5 +1,4 @@
 import pytest
-from decimal import *
 from main.imposto_faixa_impostos import ImpostoFaixaImpostos
 
 @pytest.mark.parametrize("simulador,valorFaixa1,valorFaixa2,valorFaixa3,valorFaixa4,valorFaixa5",
