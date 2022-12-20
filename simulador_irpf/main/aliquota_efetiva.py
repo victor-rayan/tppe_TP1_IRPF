@@ -8,4 +8,5 @@ class AliquotaEfetiva:
         self._impostoTotal = ImpostoFaixaImpostos(totalRendimentos-valorDeducoes).valorImpostoTotal()
     
     def valorAliquotaEfetiva(self) -> float:
-        return 24.42
+        valorAliquota = ((self._impostoTotal)/self._totalRendimentos)*100
+        return trunc(valorAliquota * 100)/100
