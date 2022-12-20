@@ -66,3 +66,16 @@ def testCadastrarDependente(nome1:str,nome2:str,nome3:str,data_nascimento1:str,d
     resultado = dependente.getDependentes()
 
     assert resultado == esperado
+
+def testCadastrarTotalDeducoes():
+    #deducao1
+    valor1 = 500.0
+    descricao1 = "Funpresp"
+
+    deducao = Deducoes()
+    deducao.cadastrarOutrasDeducoes(descricao1,valor1)
+    resultado = deducao.calculoValorTotalDeducoes()
+    
+    esperado = valor1 
+
+    assert resultado == esperado
