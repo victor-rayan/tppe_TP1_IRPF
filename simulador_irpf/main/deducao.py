@@ -5,21 +5,25 @@ class Deducoes:
         self.dependentes:list = []
         self.pensaoAlimenticia:list = []
         self.previdenciaOficial: list = []
+        self.totalValorDeducao: float = 0.0
     
     def cadastrarOutrasDeducoes(self, descricao: str, valor: float) -> None: 
            
         deducao:dict = {}
         deducao = {"descricao": descricao, "valor": valor}
         self.deducoes.append(deducao)
+        self.totalValorDeducao += valor
     
     def cadastrarPensaoAlimenticia(self,valor: float) -> None:
 
         self.pensaoAlimenticia.append(valor)
+        self.totalValorDeducao += valor
 
     def cadastrarPrevidenciaOficial(self, descricao: str, valor: float) -> None: 
         previdencia:dict = {}
         previdencia = {"descricao": descricao, "valor": valor}
         self.previdenciaOficial.append(previdencia)
+        self.totalValorDeducao += valor
 
     def cadastrarDependente(self, nome: str, data_nascimento: str) -> None:
         
@@ -40,4 +44,4 @@ class Deducoes:
         return self.deducoes
 
     def calculoValorTotalDeducoes(self):
-        return 500.0       
+        return self.totalValorDeducao      
