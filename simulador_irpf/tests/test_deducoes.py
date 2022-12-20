@@ -4,9 +4,9 @@ from main.deducao import Deducoes
 
 @pytest.mark.parametrize("descricao,descricao2,descricao3,valor,valor2,valor3,esperado",
     [
-        ("Funpresp","Privada","FAPI",500.0,150.0,200.0,[{"descricao":"Funpresp","valor":500.0},{"descricao":"Privada","valor":150.0},{"descricao":"FAPI","valor":200.0}]), 
-        ("Funpresp","Privada","FAPI",500.0,150.0,200.0,[{"descricao":"Funpresp","valor":500.0},{"descricao":"Privada","valor":150.0},{"descricao":"FAPI","valor":200.0}]), 
-        ("Funpresp","Privada","FAPI",500.0,150.0,200.0,[{"descricao":"Funpresp","valor":500.0},{"descricao":"Privada","valor":150.0},{"descricao":"FAPI","valor":200.0}])
+        ("Funpresp","Privada","FAPI",900.0,250.0,300.0,[{"descricao":"Funpresp","valor":900.0},{"descricao":"Privada","valor":250.0},{"descricao":"FAPI","valor":300.0}]), 
+        ("Privada","Aposentadoria","Funpresp",700.0,850.0,690.0,[{"descricao":"Privada","valor":700.0},{"descricao":"Aposentadoria","valor":850.0},{"descricao":"Funpresp","valor":690.0}]), 
+        ("Carne","Livro","Privada",700.80,250.60,360.55,[{"descricao":"Carne","valor":700.80},{"descricao":"Livro","valor":250.60},{"descricao":"Privada","valor":360.55}])
     ])
 def testCadastroDeducao(descricao: str,descricao2: str,descricao3: str, valor: float, valor2: float,valor3: float, esperado:list):
 
@@ -67,60 +67,22 @@ def testCadastrarDependente(nome1:str,nome2:str,nome3:str,data_nascimento1:str,d
 
     assert resultado == esperado
 
-def testCadastrarTotalDeducoes():
-    #deducao1
-    valor1 = 500.0
-    descricao1 = "Funpresp"
-
+@pytest.mark.parametrize("descricao1,descricao2,nome,data_nascimento,nome2,data_nascimento2,valor1,valor2,valor3,esperado",
+    [
+        ("Privada","FAPI","Maria",'10/09/2005','Joao','20/10/2012',400.0,150.0,379.18,929.18), 
+        ("Aposentadoria","Funpresp","Marcos","10/11/2009","Nilmar","10/01/2007",1250.00,600.00,379.18,2229.18), 
+        ("FAPI","Investimento","Mia","10/01/2007","Jorge","10/11/2009",700.50,900.00,379.18,1979.68)
+    ])
+def testCalculoTotalDeducao(descricao1: str,descricao2: str,nome:str,data_nascimento:str, nome2:str,data_nascimento2:str, valor1: float, valor2: float,valor3: float, esperado:list):
+    
     deducao = Deducoes()
     deducao.cadastrarOutrasDeducoes(descricao1,valor1)
-    resultado = deducao.calculoValorTotalDeducoes()
+    deducao.cadastrarPrevidenciaOficial(descricao2,valor2)
+    deducao.cadastrarDependente(nome,data_nascimento)
+    deducao.cadastrarDependente(nome2,data_nascimento2)
     
-    esperado = valor1 
-
-    assert resultado == esperado
-
-def testCadastroDoisTotalDeducoes():
-    valor1 = 400.0 #deducao1
-
-    valor2 = 150.0 #deducao2
-    descricao2 = 'Privada'
-
-    valor3 = 200.0 #deducao3
-    descricao3 = 'FAPI'
-    
-    deducao = Deducoes()
-    deducao.cadastrarPensaoAlimenticia(valor1)
-    deducao.cadastrarOutrasDeducoes(descricao2,valor2)
-    deducao.cadastrarPrevidenciaOficial(descricao3,valor3)
     resultado = deducao.calculoValorTotalDeducoes()
     
     esperado = valor1 + valor2 + valor3
 
     assert resultado == esperado
-
-def testCadastroTresTotalDeducoes():
-    valor1 = 400.0 #deducao1
-
-    valor2 = 150.0 #deducao2
-    descricao2 = 'Privada'
-
-    valor3 = 200.0 #deducao3
-    descricao3 = 'FAPI'
-    
-    valor4 = 189.59
-
-    nome = 'Maria' #deducao4
-    data_nascimento = '14/12/2000'
-    
-    deducao = Deducoes()
-    deducao.cadastrarPensaoAlimenticia(valor1)
-    deducao.cadastrarOutrasDeducoes(descricao2,valor2)
-    deducao.cadastrarPrevidenciaOficial(descricao3,valor3)
-    deducao.cadastrarDependente(nome,data_nascimento)
-
-    resultado = deducao.calculoValorTotalDeducoes()
-    
-    esperado = valor1 + valor2 + valor3 + valor4
-
-    assert resultado == esperado 
