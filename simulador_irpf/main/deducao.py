@@ -43,5 +43,15 @@ class Deducoes:
     def getOutrasDeducoes(self):
         return self.deducoes
 
+    def getQtdeDependente(self):
+        totalDependente:int = 0
+
+        for dependente in self.dependentes:
+            totalDependente += 1
+
+        return totalDependente    
+
     def calculoValorTotalDeducoes(self):
+        qtdeDependente = self.getQtdeDependente()
+        self.totalValorDeducao += (189.59 * qtdeDependente)
         return self.totalValorDeducao      

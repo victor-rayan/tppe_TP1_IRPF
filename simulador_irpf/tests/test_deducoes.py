@@ -97,4 +97,30 @@ def testCadastroDoisTotalDeducoes():
     
     esperado = valor1 + valor2 + valor3
 
+    assert resultado == esperado
+
+def testCadastroTresTotalDeducoes():
+    valor1 = 400.0 #deducao1
+
+    valor2 = 150.0 #deducao2
+    descricao2 = 'Privada'
+
+    valor3 = 200.0 #deducao3
+    descricao3 = 'FAPI'
+    
+    valor4 = 189.59
+
+    nome = 'Maria' #deducao4
+    data_nascimento = '14/12/2000'
+    
+    deducao = Deducoes()
+    deducao.cadastrarPensaoAlimenticia(valor1)
+    deducao.cadastrarOutrasDeducoes(descricao2,valor2)
+    deducao.cadastrarPrevidenciaOficial(descricao3,valor3)
+    deducao.cadastrarDependente(nome,data_nascimento)
+
+    resultado = deducao.calculoValorTotalDeducoes()
+    
+    esperado = valor1 + valor2 + valor3 + valor4
+
     assert resultado == esperado 
