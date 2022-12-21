@@ -43,7 +43,7 @@ pytest -v
 
 [Triangulação Rendimentos](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/a633fe9bf19b77d8c44940343629fb5b303bd2d4);
 
-[Falsificação Rendimetnos](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/76bb37df1e09690842f8805d5bac4cc5c6693834);
+[Falsificação Rendimentos](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/76bb37df1e09690842f8805d5bac4cc5c6693834);
 
 [Exceções](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/a4faf299d81a7a9bb088eb742900e5432e6eee92).
 

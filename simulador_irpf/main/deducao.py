@@ -67,6 +67,7 @@ class Deducoes:
         return totalDependente    
 
     def calculoValorTotalDeducoes(self)-> float:
+        totaldasDeducoes:float
         qtdeDependente = self.getQtdeDependente()
-        self.totalValorDeducao += (189.59 * qtdeDependente)
-        return round(self.totalValorDeducao,2)      
+        totaldasDeducoes = (189.59 * qtdeDependente) + self.totalValorDeducao
+        return round(totaldasDeducoes,2)    
