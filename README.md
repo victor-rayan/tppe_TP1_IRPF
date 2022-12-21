@@ -45,7 +45,7 @@ pytest -v
 
 [Falsificação Rendimetnos](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/76bb37df1e09690842f8805d5bac4cc5c6693834);
 
-[Exceções](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/c84ece07068b87e8a4ecfe154275b7f7b48d1654).
+[Exceções](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/a4faf299d81a7a9bb088eb742900e5432e6eee92).
 
 
 ### Commits Deduções
@@ -58,7 +58,7 @@ pytest -v
 
 [Parametrização Deduções](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/9a228043f6409b166c602379c3d9142c2c702015);
 
-[Exceções](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/ccc3d8c78021e5ed07b1edc10dd6edf678e4d277).
+[Exceções](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/a4faf299d81a7a9bb088eb742900e5432e6eee92).
 
 
 ### Commits Calculo da Faixa de Base / Valor de Imposto para cada uma das faixas
