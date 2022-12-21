@@ -76,10 +76,9 @@ pytest -v
 
 [Falsificação Aliquota Efetiva](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/1efb8c3525e71de13efa05975d3bd5d2f09d1ed2);
 
-[Duplicação Aliquota Efetiva](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/1efb8c3525e71de13efa05975d3bd5d2f09d1ed2);
+[Duplicação Aliquota Efetiva](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/5736965442c05cd66ae04ffdcfdf92f4cf7f0ad7);
 
 [Triangulação Aliquota Efetiva](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/8fae7f817d0751d46dda2a824d879ce235e44b82);
 
 [Parametrização Aliquota Efetiva](https://github.com/victor-rayan/tppe_TP1_IRPF/commit/8fae7f817d0751d46dda2a824d879ce235e44b82);
 
-[Exceções]().
