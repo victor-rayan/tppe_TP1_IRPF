@@ -1,5 +1,6 @@
 import pytest
 from main.cadastro_de_rendimentos import CadastroDeRendimentos
+from exceptions.exceptions import (DescricaoEmBrancoException, ValorDeducaoInvalidoException,NomeEmBrancoException)
    
 @pytest.mark.parametrize("descricao1,descricao2,descricao3,valor1,valor2,valor3",
     [
@@ -18,14 +19,4 @@ def testCadastroRendimento(descricao1: str, descricao2: str, descricao3: str, va
 
     assert resultado == valor1 + valor2 + valor3
 
-@pytest.mark.parametrize("descricao, valor",
-[
-    ("Aluguel",0.0),
-    ("",6000),
-    ("",0.0)
-])
-def testExcecaoRedimento(descricao:str, valor:float):
-    simuladorIRPF = CadastroDeRendimentos()
-    with pytest.raises(Exception):
-        simuladorIRPF.cadastrarRendimento(descricao, valor)
-        
+      

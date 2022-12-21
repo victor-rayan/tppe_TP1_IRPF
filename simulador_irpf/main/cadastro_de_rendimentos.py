@@ -1,4 +1,5 @@
 from .rendimento import Rendimento
+from exceptions.exceptions import (DescricaoEmBrancoException,ValorRendimentoInvalidoException)
 
 class CadastroDeRendimentos:
     def __init__(self):
@@ -13,8 +14,8 @@ class CadastroDeRendimentos:
 
     def cadastrarRendimento(self, descricao, valor):
         if valor <= 0 or valor == None:
-            raise Exception('ValorRendimentoInvalidoException')
+            raise ValorRendimentoInvalidoException
         if descricao == None or descricao == "":
-            raise Exception('DescricaoEmBrancoException')
+            raise DescricaoEmBrancoException
         novoRendimento = Rendimento(descricao, valor)
         self._rendimentos.append(novoRendimento)

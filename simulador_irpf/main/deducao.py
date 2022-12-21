@@ -1,3 +1,5 @@
+from exceptions.exceptions import (DescricaoEmBrancoException,ValorDeducaoInvalidoException,NomeEmBrancoException)
+
 class Deducoes:
     
     def __init__(self) -> None:
@@ -9,9 +11,9 @@ class Deducoes:
     
     def cadastrarOutrasDeducoes(self, descricao: str, valor: float) -> None: 
         if descricao == None or descricao == "":
-            raise Exception('DescricaoEmBrancoException')
+            raise DescricaoEmBrancoException
         if valor <= 0 or valor == None:
-            raise Exception('ValorDeducaoInvalidoException')
+            raise ValorDeducaoInvalidoException
            
         deducao:dict = {}
         deducao = {"descricao": descricao, "valor": valor}
@@ -20,16 +22,16 @@ class Deducoes:
     
     def cadastrarPensaoAlimenticia(self,valor: float) -> None:
         if valor <= 0 or valor == None:
-            raise Exception('ValorDeducaoInvalidoException') 
+            raise ValorDeducaoInvalidoException
         
         self.pensaoAlimenticia.append(valor)
         self.totalValorDeducao += valor
 
     def cadastrarPrevidenciaOficial(self, descricao: str, valor: float) -> None:
         if descricao == None or descricao == "":
-            raise Exception('DescricaoEmBrancoException')
+            raise DescricaoEmBrancoException
         if valor <= 0 or valor == None:
-            raise Exception('ValorDeducaoInvalidoException')  
+            raise ValorDeducaoInvalidoException  
         
         previdencia:dict = {}
         previdencia = {"descricao": descricao, "valor": valor}
@@ -38,7 +40,7 @@ class Deducoes:
 
     def cadastrarDependente(self, nome: str, data_nascimento: str) -> None:
         if nome == None or nome == "":
-            raise Exception('NomeEmBrancoException')
+            raise NomeEmBrancoException
         
         dependente:dict = {}
         dependente = {"nome": nome, "data_nascimento": data_nascimento if data_nascimento else None}
